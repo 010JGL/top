@@ -1,62 +1,18 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, MenuItem, Menu, Container } from '@mui/material';
-import { useState } from 'react';
-import "./HomePage.css";
+import { Container, Typography } from '@mui/material';
+import './HomePage.css';
 
 const HomePage = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleLanguageClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleLanguageClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <div>
-      {/* Navigation Bar */}
-      <AppBar position="static" className="navbar">
-        <Toolbar>
-          {/* Company Logo */}
-          <Typography variant="h6" className="logo">
-            Top Construction
-          </Typography>
-
-          {/* Navigation Links */}
-          <div className="nav-links">
-            <Button color="inherit" href="#realisations" className="nav-button">Realisations</Button>
-            <Button color="inherit" href="#rents" className="nav-button">Rents</Button>
-            <Button color="inherit" href="#roofing-quote" className="nav-button">Roofing Quote</Button>
-            <Button color="inherit" href="#contact" className="nav-button">Contact</Button>
-          </div>
-
-          {/* Language Switcher */}
-          <Button
-            color="inherit"
-            className="language-switcher"
-            onClick={handleLanguageClick}
-          >
-            ENG/FR
-          </Button>
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleLanguageClose}
-          >
-            <MenuItem onClick={handleLanguageClose}>English</MenuItem>
-            <MenuItem onClick={handleLanguageClose}>Français</MenuItem>
-          </Menu>
-        </Toolbar>
-      </AppBar>
+      
 
       {/* Home Page Content */}
       <div className="hero-section">
         <div className="overlay">
           <Container className="hero-container">
             <Typography variant="h3" className="hero-title">
-              Welcome to Top Construction
+              Welcome to Les Tops du Top Construction
             </Typography>
             <Typography variant="h6" className="hero-subtitle">
               Your trusted partner in construction, roofing, and property rentals.
@@ -92,4 +48,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
