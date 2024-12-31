@@ -1,0 +1,63 @@
+.navbar {
+  background-color: #1a1a1a;
+  box-shadow: none;
+}
+
+.logo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.nav-links {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-button {
+  color: #f0f0f0;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.hero-section {
+  position: relative;
+  height: 400px;
+  background: url('https://via.placeholder.com/1920x400') center/cover no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  color: #dcdcdc;
+}
+
+.sections {
+  padding: 40px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
