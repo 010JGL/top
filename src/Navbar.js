@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundColor: 'black' }}>
       <Toolbar>
         {/* Company Logo */}
         <Typography variant="h6" style={{ flexGrow: 1 }}>
@@ -29,13 +29,13 @@ const Navbar = () => {
           <Button color="inherit" component={Link} to="/realisations" style={{ marginRight: '15px' }}>
             Realisations
           </Button>
-          <Button color="inherit" href="#rents" style={{ marginRight: '15px' }}>
+          <Button color="inherit" component={Link} to="/rents" style={{ marginRight: '15px' }}>
             Rents
           </Button>
-          <Button color="inherit" href="#roofing-quote" style={{ marginRight: '15px' }}>
+          <Button color="inherit" component={Link} to="/roofing" style={{ marginRight: '15px' }}>
             Roofing Quote
           </Button>
-          <Button color="inherit" href="#contact">
+          <Button color="inherit" component={Link} to="/contact" style={{ marginRight: '15px' }}>
             Contact
           </Button>
         </div>
