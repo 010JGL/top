@@ -7,7 +7,6 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  Button,
 } from "@mui/material";
 import "./HomePage.css";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
@@ -118,7 +117,7 @@ const HomePage = () => {
         }}
       >
         <Typography
-          variant="h4"
+          variant="h3"
           style={{ fontWeight: "bold", marginBottom: "20px" }}
         >
           General Contractor
@@ -126,7 +125,8 @@ const HomePage = () => {
         <Box
           style={{
             border: "1px solid #ccc",
-            padding: "20px",
+            padding: "20px 40px",
+            marginBottom: "40px",
             borderRadius: "8px",
             maxWidth: "800px",
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -150,8 +150,9 @@ const HomePage = () => {
           style={{
             backgroundColor: "black",
             color: "white",
-            padding: "40px 0",
+            padding: "20px 0",
             textAlign: "center",
+            marginBottom: "40px",
           }}
         >
           <Container>
@@ -177,9 +178,9 @@ const HomePage = () => {
                   variant="h6"
                   style={{
                     color: "white",
-                    margin: "10px",
+                    margin: "20px", // Increased spacing
                     cursor: "pointer",
-                    fontSize: "1rem",
+                    fontSize: "1.5rem", // Increased font size (50% larger)
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) => (e.target.style.color = "#FF5733")}
@@ -194,9 +195,9 @@ const HomePage = () => {
                   variant="h6"
                   style={{
                     color: "white",
-                    margin: "10px",
+                    margin: "20px", // Increased spacing
                     cursor: "pointer",
-                    fontSize: "1rem",
+                    fontSize: "1.5rem", // Increased font size (50% larger)
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) => (e.target.style.color = "#FF5733")}
@@ -211,9 +212,9 @@ const HomePage = () => {
                   variant="h6"
                   style={{
                     color: "white",
-                    margin: "10px",
+                    margin: "20px", // Increased spacing
                     cursor: "pointer",
-                    fontSize: "1rem",
+                    fontSize: "1.5rem", // Increased font size (50% larger)
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) => (e.target.style.color = "#FF5733")}
@@ -299,6 +300,52 @@ const HomePage = () => {
           ))}
         </Grid>
       </Container>
+      <div style={{ textAlign: "center" }}>
+        {/* Title */}
+        <Typography
+          variant="h3"
+          style={{
+            fontWeight: "bold",
+            marginBottom: "20px",
+            textAlign: "center", // Center the title text
+          }}
+        >
+          Partners
+        </Typography>
+
+        {/* Logos Section */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "40px", // Space between logos
+            flexWrap: "wrap", // Allows wrapping for small screens
+          }}
+        >
+          {/* Company Logos */}
+          <img
+            src="/images/logo1.png"
+            alt="Partner 1"
+            style={{ width: "240px", height: "auto" }}
+          />
+          <img
+            src="/images/logo2.png"
+            alt="Partner 2"
+            style={{ width: "240px", height: "auto" }}
+          />
+          <img
+            src="/images/logo3.png"
+            alt="Partner 3"
+            style={{ width: "240px", height: "auto" }}
+          />
+          <img
+            src="/images/logo4.png"
+            alt="Partner 4"
+            style={{ width: "240px", height: "auto" }}
+          />
+        </div>
+      </div>
     </div>
   );
 };

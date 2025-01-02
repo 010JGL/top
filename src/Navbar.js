@@ -23,19 +23,69 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div>
-          <Button color="inherit" component={Link} to="/" style={{ marginRight: '15px' }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/"
+            style={{
+              marginRight: '15px',
+              transition: 'color 0.3s ease', // Smooth color transition
+            }}
+            onMouseEnter={(e) => (e.target.style.color = '#FF5733')} // Hover effect
+            onMouseLeave={(e) => (e.target.style.color = 'white')} // Revert to original color
+          >
             Home
           </Button>
-          <Button color="inherit" component={Link} to="/realisations" style={{ marginRight: '15px' }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/realisations"
+            style={{
+              marginRight: '15px',
+              transition: 'color 0.3s ease',
+            }}
+            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
+            onMouseLeave={(e) => (e.target.style.color = 'white')}
+          >
             Realisations
           </Button>
-          <Button color="inherit" component={Link} to="/rents" style={{ marginRight: '15px' }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/rents"
+            style={{
+              marginRight: '15px',
+              transition: 'color 0.3s ease',
+            }}
+            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
+            onMouseLeave={(e) => (e.target.style.color = 'white')}
+          >
             Rents
           </Button>
-          <Button color="inherit" component={Link} to="/roofing" style={{ marginRight: '15px' }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/roofing"
+            style={{
+              marginRight: '15px',
+              transition: 'color 0.3s ease',
+            }}
+            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
+            onMouseLeave={(e) => (e.target.style.color = 'white')}
+          >
             Roofing Quote
           </Button>
-          <Button color="inherit" component={Link} to="/contact" style={{ marginRight: '15px' }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/contact"
+            style={{
+              marginRight: '15px',
+              transition: 'color 0.3s ease',
+            }}
+            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
+            onMouseLeave={(e) => (e.target.style.color = 'white')}
+          >
             Contact
           </Button>
         </div>
