@@ -52,19 +52,6 @@ const Navbar = () => {
           <Button
             color="inherit"
             component={Link}
-            to="/rents"
-            style={{
-              marginRight: '15px',
-              transition: 'color 0.3s ease',
-            }}
-            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
-            onMouseLeave={(e) => (e.target.style.color = 'white')}
-          >
-            Rents
-          </Button>
-          <Button
-            color="inherit"
-            component={Link}
             to="/roofing"
             style={{
               marginRight: '15px',
@@ -74,6 +61,19 @@ const Navbar = () => {
             onMouseLeave={(e) => (e.target.style.color = 'white')}
           >
             Roofing Quote
+          </Button>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/rentPage"
+            style={{
+              marginRight: '15px',
+              transition: 'color 0.3s ease',
+            }}
+            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
+            onMouseLeave={(e) => (e.target.style.color = 'white')}
+          >
+            For Rent
           </Button>
           <Button
             color="inherit"

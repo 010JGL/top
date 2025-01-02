@@ -8,6 +8,7 @@ import SingleFamilyHome from './SingleFamilyHome';
 import MultiUnits from './MultiUnits';
 import Renovation from './Renovation';
 import Roofing from './Roofing';
+import RentPage from './RentPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/MultiUnits" element={<MultiUnits />} />
           <Route path="/Renovation" element={<Renovation />} />
           <Route path="/Roofing" element={<Roofing />} />
+          <Route path="/RentPage" element={<RentPage />} />
         </Routes>
       </div>
     </Router>
