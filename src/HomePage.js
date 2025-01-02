@@ -325,22 +325,22 @@ const HomePage = () => {
         >
           {/* Company Logos */}
           <img
-            src="/images/logo1.png"
+            src="/images/logo/logo1.png"
             alt="Partner 1"
             style={{ width: "240px", height: "auto" }}
           />
           <img
-            src="/images/logo2.png"
+            src="/images/logo/logo2.png"
             alt="Partner 2"
             style={{ width: "240px", height: "auto" }}
           />
           <img
-            src="/images/logo3.png"
+            src="/images/logo/logo3.png"
             alt="Partner 3"
             style={{ width: "240px", height: "auto" }}
           />
           <img
-            src="/images/logo4.png"
+            src="/images/logo/logo4.png"
             alt="Partner 4"
             style={{ width: "240px", height: "auto" }}
           />
