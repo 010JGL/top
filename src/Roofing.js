@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
-import { Typography, Container, TextField, Button, Grid, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-import emailjs from 'emailjs-com';
+import React, { useState } from "react";
+import {
+  Typography,
+  Container,
+  TextField,
+  Button,
+  Grid,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
+import emailjs from "emailjs-com";
 
 const RoofingQuotePage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    address: '',
-    email: '',
-    phone: '',
-    materialType: '',
-    length: '',
-    width: '',
-    roofAngle: '',
+    name: "",
+    address: "",
+    email: "",
+    project: "",
+    phone: "",
+    materialType: "",
+    length: "",
+    width: "",
+    roofAngle: "",
+    idealDate: "", // Ideal date for the job as text
   });
 
   const handleChange = (e) => {
@@ -25,33 +37,58 @@ const RoofingQuotePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send form data using EmailJS
     emailjs
       .send(
-        'service_r4tluzl',       // Your EmailJS Service ID
-        'template_qhhwfr8',      // Your EmailJS Template ID
-        formData,                // The form data that will replace the template placeholders
-        '-RNM0ph9829LH8Wze'           // Your EmailJS User ID
+        "service_r4tluzl", // Your EmailJS Service ID
+        "template_qhhwfr8", // Your EmailJS Template ID
+        formData, // Form data that will replace the template placeholders
+        "-RNM0ph9829LH8Wze" // Your EmailJS User ID
       )
       .then(
-        (response) => {
-          alert('Your request has been submitted! We will contact you shortly.');
+        () => {
+          alert(
+            "Your request has been submitted! We will contact you shortly."
+          );
         },
-        (error) => {
-          alert('There was an error. Please try again later.');
+        () => {
+          alert("There was an error. Please try again later.");
         }
       );
   };
 
   return (
     <div>
-      <Container style={{ padding: '20px', textAlign: 'center' }}>
-        <Typography variant="h3" gutterBottom>
+      {/* Hero Section */}
+      <div
+        style={{
+          backgroundImage: `url('/images/toproof.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "550px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "white",
+        }}
+      >
+        <Typography variant="h3" style={{ fontWeight: "bold" }}>
           Ask for a Free Roofing Quote
         </Typography>
-        <Typography variant="body1" style={{ marginBottom: '30px' }}>
-          We specialize in residential asphalt shingles and tin roofing projects, whether it's a new construction, a roof replacement, or a repair job.
-          Our team ensures top-quality work and will provide you with a custom quote tailored to your needs.
+      </div>
+
+      <Container style={{ padding: "20px", textAlign: "center" }}>
+        <Typography variant="body1" style={{ marginBottom: "30px" }}>
+          We specialize in residential asphalt shingles and tin roofing
+          projects, whether it's a new construction, a roof replacement, or a
+          repair job. Our team ensures top-quality work and will provide you
+          with a custom quote tailored to your needs.
+        </Typography>
+        <Typography
+          variant="body1"
+          style={{ marginBottom: "30px", fontStyle: "italic" }}
+        >
+          For an urgent repair job, reach us via the Contact page for a quicker
+          response.
         </Typography>
 
         <form onSubmit={handleSubmit}>
@@ -124,6 +161,33 @@ const RoofingQuotePage = () => {
                 </Select>
               </FormControl>
             </Grid>
+            {/* Project */}
+            <Grid item xs={12} sm={6}>
+              <FormControl fullWidth>
+                <InputLabel>Project</InputLabel>
+                <Select
+                  label="Project"
+                  name="project"
+                  value={formData.project}
+                  onChange={handleChange}
+                  required
+                >
+                  <MenuItem value="New Construction">New Construction</MenuItem>
+                  <MenuItem value="Roof Replacement">Roof Replacement</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            {/* Optional Fields */}
+            <Grid item xs={12}>
+              <Typography
+                variant="body1"
+                style={{ marginBottom: "10px", marginTop: "10px" }}
+              >
+                This category is optional but will help us calculate a more
+                accurate price.
+              </Typography>
+            </Grid>
 
             {/* Length */}
             <Grid item xs={12} sm={6}>
@@ -134,7 +198,6 @@ const RoofingQuotePage = () => {
                 name="length"
                 value={formData.length}
                 onChange={handleChange}
-                optional
               />
             </Grid>
 
@@ -147,26 +210,54 @@ const RoofingQuotePage = () => {
                 name="width"
                 value={formData.width}
                 onChange={handleChange}
-                optional
               />
             </Grid>
-
             {/* Roof Angle */}
             <Grid item xs={12} sm={6}>
+              <FormControl fullWidth>
+                <InputLabel>Roof Angle</InputLabel>
+                <Select
+                  label="Roof Angle"
+                  name="roofAngle"
+                  value={formData.roofAngle}
+                  onChange={handleChange}
+                >
+                  <MenuItem value="1/12">1/12</MenuItem>
+                  <MenuItem value="2/12">2/12</MenuItem>
+                  <MenuItem value="3/12">3/12</MenuItem>
+                  <MenuItem value="4/12">4/12</MenuItem>
+                  <MenuItem value="5/12">5/12</MenuItem>
+                  <MenuItem value="6/12">6/12</MenuItem>
+                  <MenuItem value="7/12">7/12</MenuItem>
+                  <MenuItem value="8/12">8/12</MenuItem>
+                  <MenuItem value="9/12">9/12</MenuItem>
+                  <MenuItem value="10/12">10/12</MenuItem>
+                  <MenuItem value="11/12">11/12</MenuItem>
+                  <MenuItem value="12/12">12/12</MenuItem>
+                  <MenuItem value="13/12+">13/12+</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            {/* Ideal Date for the Job */}
+            <Grid item xs={12} sm={6}>
               <TextField
-                label="Roof Angle (degrees)"
+                label="Ideal Date for the Job"
                 variant="outlined"
                 fullWidth
-                name="roofAngle"
-                value={formData.roofAngle}
+                name="idealDate"
+                value={formData.idealDate}
                 onChange={handleChange}
-                optional
               />
             </Grid>
 
             {/* Submit Button */}
             <Grid item xs={12}>
-              <Button type="submit" variant="contained" color="primary" fullWidth>
+              <Button
+                type="submit"
+                variant="contained"
+                style={{ backgroundColor: "black", color: "white" }}
+                fullWidth
+              >
                 Submit Request
               </Button>
             </Grid>
