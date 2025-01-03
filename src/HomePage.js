@@ -243,7 +243,7 @@ const HomePage = () => {
               id: "rents",
               title: "Available Rentals",
               image: "/images/rents.jpg",
-              link: "/rents",
+              link: "/RentPage",
             },
             {
               id: "roofing-quote",
