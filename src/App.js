@@ -13,9 +13,12 @@ import Contact from "./Contact";
 import Services from "./Services";
 import ScrollUp from "./hooks/ScrollUp"; // Import ScrollToTop
 import RoofingJobs from "./RoofingJobs";
+import { LanguageProvider } from './LanguageContext'; // Import the context
+
 
 function App() {
   return (
+    <LanguageProvider> {/* Wrap with provider */}
     <Router>
       <div>
         <Navbar /> {/* Include Navbar here */}
@@ -35,6 +38,7 @@ function App() {
         <Contact />
       </div>
     </Router>
+    </LanguageProvider>
   );
 }
 

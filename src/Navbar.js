@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Menu, MenuItem } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useLanguage } from './LanguageContext'; // Import the custom hook
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const { language, switchLanguage } = useLanguage(); // Access language and switchLanguage from context
 
   const handleLanguageClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleLanguageClose = () => {
+  const handleLanguageClose = (lang) => {
+    if (lang) {
+      switchLanguage(lang); // Update the language in context
+    }
     setAnchorEl(null);
   };
 
@@ -34,75 +39,50 @@ const Navbar = () => {
             color="inherit"
             component={RouterLink}
             to="/"
-            style={{
-              marginRight: '15px',
-              transition: 'color 0.3s ease',
-            }}
-            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
-            onMouseLeave={(e) => (e.target.style.color = 'white')}
+            style={{ marginRight: '15px' }}
           >
-            Home
+            {language === 'en' ? 'Home' : 'Accueil'}
           </Button>
           <Button
             color="inherit"
             component={RouterLink}
             to="/realisations"
-            style={{
-              marginRight: '15px',
-              transition: 'color 0.3s ease',
-            }}
-            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
-            onMouseLeave={(e) => (e.target.style.color = 'white')}
+            style={{ marginRight: '15px' }}
           >
-            Realisations
+            {language === 'en' ? 'Realisations' : 'Réalisation'}
           </Button>
           <Button
             color="inherit"
             component={RouterLink}
             to="/roofing"
-            style={{
-              marginRight: '15px',
-              transition: 'color 0.3s ease',
-            }}
-            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
-            onMouseLeave={(e) => (e.target.style.color = 'white')}
+            style={{ marginRight: '15px' }}
           >
-            Roofing Quote
+            {language === 'en' ? 'Roofing Quote' : 'Soumission toiture'}
           </Button>
           <Button
             color="inherit"
             component={RouterLink}
             to="/rentPage"
-            style={{
-              marginRight: '15px',
-              transition: 'color 0.3s ease',
-            }}
-            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
-            onMouseLeave={(e) => (e.target.style.color = 'white')}
+            style={{ marginRight: '15px' }}
           >
-            For Rent
+            {language === 'en' ? 'For Rent' : 'À Louer'}
           </Button>
           <Button
             color="inherit"
             onClick={scrollToContact}
-            style={{
-              marginRight: '15px',
-              transition: 'color 0.3s ease',
-            }}
-            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
-            onMouseLeave={(e) => (e.target.style.color = 'white')}
+            style={{ marginRight: '15px' }}
           >
-            Contact
+            {language === 'en' ? 'Contact' : 'Contact'}
           </Button>
         </div>
 
         {/* Language Switcher */}
         <Button color="inherit" onClick={handleLanguageClick}>
-          ENG/FR
+          {language === 'en' ? 'ENG/FR' : 'FR/ENG'}
         </Button>
-        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleLanguageClose}>
-          <MenuItem onClick={handleLanguageClose}>English</MenuItem>
-          <MenuItem onClick={handleLanguageClose}>Français</MenuItem>
+        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => handleLanguageClose()}>
+          <MenuItem onClick={() => handleLanguageClose('en')}>English</MenuItem>
+          <MenuItem onClick={() => handleLanguageClose('fr')}>Français</MenuItem>
         </Menu>
       </Toolbar>
     </AppBar>
@@ -110,4 +90,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

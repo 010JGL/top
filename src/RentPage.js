@@ -7,21 +7,48 @@ import {
   CardContent,
   Button,
 } from "@mui/material";
+import { useLanguage } from './LanguageContext'; // Use the context hook
 
 const RentPage = () => {
+  const { language } = useLanguage(); // Access the current language
+  
+  // Define text based on language selection
+  const translations = {
+    en: {
+      title: "Rent Options",
+      description: "Browse available rental options by city and category.",
+      cityLabel: "City",
+      typeLabel: "Type",
+      priceLabel: "Price",
+      viewLabel: "View on Facebook Marketplace",
+      month: "/ month", // English version for month
+    },
+    fr: {
+      title: "Options de location",
+      description: "Parcourez les options de location disponibles par ville et catégorie.",
+      cityLabel: "Ville",
+      typeLabel: "Type",
+      priceLabel: "Prix",
+      viewLabel: "Voir sur Facebook Marketplace",
+      month: "/ mois", // French version for month
+    }
+  };
+
+  const currentLang = translations[language] || translations.en;
+
   const cities = [
     {
       city: "Saint-Jean-Baptiste",
       rentals: [
         {
           type: "4 1/2 Apartment",
-          price: "$1550/month",
-          link: "https://www.facebook.com/marketplace/item/1027857215465756?ref=category_feed&referral_code=undefined&referral_story_type=listing&tracking=%7B%22qid%22%3A%22-616421741623744423%22%2C%22mf_story_key%22%3A%227908778019190203%22%2C%22commerce_rank_obj%22%3A%22%7B%5C%22target_id%5C%22%3A7908778019190203%2C%5C%22target_type%5C%22%3A0%2C%5C%22primary_position%5C%22%3A10%2C%5C%22ranking_signature%5C%22%3A1887888787676298658%2C%5C%22commerce_channel%5C%22%3A504%2C%5C%22value%5C%22%3A4.0e-9%2C%5C%22candidate_retrieval_source_map%5C%22%3A%7B%5C%227908778019190203%5C%22%3A204%7D%7D%22%7D",
+          price: "$1550",
+          link: "https://www.facebook.com/marketplace/item/1027857215465756?ref=category_feed&referral_code=undefined&referral_story_type=listing&tracking=%7B%22qid%22%3A%22-616421741623744423%22%2C%22mf_story_key%22%3A227908778019190203%7D",
         },
         {
           type: "4 1/2 Apartment",
-          price: "$1550/month",
-          link: "https://www.facebook.com/marketplace/item/1027857215465756?ref=category_feed&referral_code=undefined&referral_story_type=listing&tracking=%7B%22qid%22%3A%22-616421741623744423%22%2C%22mf_story_key%22%3A%227908778019190203%22%2C%22commerce_rank_obj%22%3A%22%7B%5C%22target_id%5C%22%3A7908778019190203%2C%5C%22target_type%5C%22%3A0%2C%5C%22primary_position%5C%22%3A10%2C%5C%22ranking_signature%5C%22%3A1887888787676298658%2C%5C%22commerce_channel%5C%22%3A504%2C%5C%22value%5C%22%3A4.0e-9%2C%5C%22candidate_retrieval_source_map%5C%22%3A%7B%5C%227908778019190203%5C%22%3A204%7D%7D%22%7D",
+          price: "$1550",
+          link: "https://www.facebook.com/marketplace/item/1027857215465756?ref=category_feed&referral_code=undefined&referral_story_type=listing&tracking=%7B%22qid%22%3A%22-616421741623744423%22%2C%22mf_story_key%22%3A227908778019190203%7D",
         },
       ],
     },
@@ -30,17 +57,17 @@ const RentPage = () => {
       rentals: [
         {
           type: "5 1/2 Apartment",
-          price: "$1600/month",
+          price: "$1600",
           link: "https://www.facebook.com/marketplace/item4",
         },
         {
           type: "5 1/2 Apartment",
-          price: "$1600/month",
+          price: "$1600",
           link: "https://www.facebook.com/marketplace/item5",
         },
         {
           type: "5 1/2 Apartment",
-          price: "$1600/month",
+          price: "$1600",
           link: "https://www.facebook.com/marketplace/item5",
         },
       ],
@@ -52,17 +79,17 @@ const RentPage = () => {
       <Container style={{ textAlign: "center", padding: "20px" }}>
         {/* Page Title */}
         <Typography variant="h3" gutterBottom>
-          Rent Options
+          {currentLang.title}
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Browse available rental options by city and category.
+          {currentLang.description}
         </Typography>
 
         {/* Rental Options by City */}
         {cities.map((city, cityIndex) => (
           <div key={cityIndex}>
             <Typography variant="h4" gutterBottom style={{ marginTop: "40px" }}>
-              {city.city}
+              {currentLang.cityLabel}: {city.city}
             </Typography>
 
             <Grid container spacing={4} justifyContent="center">
@@ -94,10 +121,10 @@ const RentPage = () => {
                       }}
                     >
                       <Typography variant="h5" style={{ fontWeight: "bold" }}>
-                        {rental.type}
+                        {currentLang.typeLabel}: {rental.type}
                       </Typography>
                       <Typography variant="body1" style={{ margin: "10px 0" }}>
-                        {rental.price}
+                        {currentLang.priceLabel}: {rental.price} {currentLang.month}
                       </Typography>
                       <Button
                         variant="contained"
@@ -109,7 +136,7 @@ const RentPage = () => {
                           color: "white",
                         }}
                       >
-                        View on Facebook Marketplace
+                        {currentLang.viewLabel}
                       </Button>
                     </CardContent>
                   </Card>
@@ -124,3 +151,5 @@ const RentPage = () => {
 };
 
 export default RentPage;
+
+
