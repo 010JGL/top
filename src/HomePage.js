@@ -233,84 +233,80 @@ const HomePage = () => {
       </div>
 
       {/* Interactive Cards for Sections */}
-<Container style={{ padding: "40px 0" }}>
-  <Grid container spacing={4}>
-    {[
-      {
-        id: "realisations",
-        title: texts.realisations,
-        image: "/images/realisations.jpg",
-        link: "/realisations",
-      },
-      {
-        id: "rents",
-        title: texts.availableRentals,
-        image: "/images/rents.jpg",
-        link: "/RentPage",
-      },
-      {
-        id: "roofing-quote",
-        title: texts.getRoofingQuote,
-        image: "/images/roofing.jpg",
-        link: "/roofing",
-      },
-      {
-        id: "contact",
-        title: texts.contactUs,
-        image: "/images/contact.jpg",
-      },
-    ].map((section) => (
-      <Grid item xs={12} sm={6} key={section.id}>
-        <Card
-          style={{
-            height: "300px",
-            maxWidth: "580px",
-            position: "relative",
-            border: "1px solid black",
-            transition: "all 0.3s ease", // Smooth transition
-          }}
-          className="card-hover" // Add this class for hover effect
-        >
-          <CardActionArea
-            // For the 'contact' card, add the mailto link
-            onClick={section.id === "contact" ? () => window.location.href = "mailto:GestionTopsDuTop@gmail.com" : null}
-            style={{ height: "100%" }}
-          >
-            <div
-              style={{
-                backgroundImage: `url(${section.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "100%",
-              }}
-            >
-              <CardContent
+      <Container style={{ padding: "40px 0" }}>
+        <Grid container spacing={4}>
+          {[
+            {
+              id: "realisations",
+              title: texts.realisations,
+              image: "/images/realisations.jpg",
+              link: "/realisations",
+            },
+            {
+              id: "rents",
+              title: texts.availableRentals,
+              image: "/images/rents.jpg",
+              link: "/RentPage",
+            },
+            {
+              id: "roofing-quote",
+              title: texts.getRoofingQuote,
+              image: "/images/roofing.jpg",
+              link: "/roofing",
+            },
+            {
+              id: "contact",
+              title: texts.contactUs,
+              image: "/images/contact.jpg",
+              link: "/ContactUs"
+              
+              
+            },
+          ].map((section) => (
+            <Grid item xs={12} sm={6} key={section.id}>
+              <Card
                 style={{
-                  backgroundColor: "rgba(0, 0, 0, 0.5)",
-                  color: "white",
-                  position: "absolute",
-                  bottom: 0,
-                  width: "100%",
-                  textAlign: "center",
+                  height: "300px",
+                  maxWidth: "580px",
+                  position: "relative",
+                  border: "1px solid black",
+                  transition: "all 0.3s ease", // Smooth transition
                 }}
+                className="card-hover" // Add this class for hover effect
               >
-                <Typography variant="h6">{section.title}</Typography>
-                {/* Only add the mailto link on the contact card */}
-                {section.id === "contact" && (
-                  <a
-                    href="mailto:GestionTopsDuTop@gmail.com"
-                    style={{ color: "white", textDecoration: "underline", marginTop: "10px", display: "block" }}
-                  ></a>
-                )}
-              </CardContent>
-            </div>
-          </CardActionArea>
-        </Card>
-      </Grid>
-    ))}
-  </Grid>
-</Container>
-
+                <CardActionArea
+                  href={`#${section.id}`}
+                  style={{ height: "100%" }}
+                >
+                  <Link to={section.link} style={{ height: "100%" }}>
+                    <div
+                      style={{
+                        backgroundImage: `url(${section.image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        height: "100%",
+                      }}
+                    >
+                      <CardContent
+                        style={{
+                          backgroundColor: "rgba(0, 0, 0, 0.5)",
+                          color: "white",
+                          position: "absolute",
+                          bottom: 0,
+                          width: "100%",
+                          textAlign: "center",
+                        }}
+                      >
+                        <Typography variant="h6">{section.title}</Typography>
+                      </CardContent>
+                    </div>
+                  </Link>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
       <div style={{ textAlign: "center" }}>
         {/* Title */}
         <Typography

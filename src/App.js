@@ -14,6 +14,7 @@ import Services from "./Services";
 import ScrollUp from "./hooks/ScrollUp"; // Import ScrollToTop
 import RoofingJobs from "./RoofingJobs";
 import { LanguageProvider } from './LanguageContext'; // Import the context
+import ContactUs from "./ContactUs";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/RentPage" element={<RentPage />} />
           <Route path="/Services" element={<Services />} />
           <Route path="/RoofingJobs" element={<RoofingJobs />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
         </Routes>
         <Contact />
       </div>
