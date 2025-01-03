@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Container, Grid, Card, CardMedia, CardActionArea } from '@mui/material';
 import PropTypes from 'prop-types';
+import { useLanguage } from './LanguageContext'; // Import the language context
 
 // GalleryTemplate Component
 const GalleryTemplate = ({ title, description, galleryItems }) => {
@@ -70,14 +71,16 @@ GalleryTemplate.propTypes = {
 
 // Main Component
 const GalleryPage = () => {
-  // Sample Data for the Gallery
+  const { language } = useLanguage(); // Get current language
+
+  // Sample Data for the Gallery with language handling
   const galleryData = {
-    title: 'Renovation Gallery',
-    description: 'These are some of our recent projects.',
+    title: language === 'fr' ? 'Galerie de rénovations' : 'Renovation Gallery',
+    description: language === 'fr' ? 'Voici quelques-uns de nos projets récents.' : 'These are some of our recent projects.',
     galleryItems: [
-      { type: 'image', image: '/path/to/image.jpg', alt: 'Sample Image' },
-      { type: 'image', image: '/path/to/image.jpg', alt: 'Sample Image' },
-      { type: 'image', image: '/path/to/image.jpg', alt: 'Sample Image' },
+      { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
     ],
   };
 

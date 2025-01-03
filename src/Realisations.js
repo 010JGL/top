@@ -1,30 +1,33 @@
 import React from 'react';
 import { Typography, Container, Grid, Card, CardContent } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useLanguage } from './LanguageContext'; // Import the language context
 
 const Realisations = () => {
+  const { language } = useLanguage(); // Access the current language
+
   const projects = [
     {
-      title: 'Single-Family Homes',
-      description: 'Beautiful and modern single-family homes.',
+      title: language === 'fr' ? 'Maisons unifamiliales' : 'Single-Family Homes',
+      description: language === 'fr' ? 'Maisons unifamiliales modernes et magnifiques.' : 'Beautiful and modern single-family homes.',
       image: '/images/realisations/single-family.jpg',
       link: '/SingleFamilyHome',
     },
     {
-      title: 'Multi Units',
-      description: 'Stylish and functional multi-unit buildings.',
+      title: language === 'fr' ? 'Unités multiples' : 'Multi Units',
+      description: language === 'fr' ? 'Bâtiments fonctionnels et élégants à plusieurs unités.' : 'Stylish and functional multi-unit buildings.',
       image: '/images/realisations/multi-units.jpg',
       link: '/MultiUnits',
     },
     {
-      title: 'Renovation',
-      description: 'Expert renovation projects for all needs.',
+      title: language === 'fr' ? 'Rénovation' : 'Renovation',
+      description: language === 'fr' ? 'Projets de rénovation spécialisés pour tous besoins.' : 'Expert renovation projects for all needs.',
       image: '/images/realisations/renovation.jpg',
       link: '/Renovation',
     },
     {
-      title: 'Roofing',
-      description: 'High-quality roofing services.',
+      title: language === 'fr' ? 'Toiture' : 'Roofing',
+      description: language === 'fr' ? 'Services de toiture de haute qualité.' : 'High-quality roofing services.',
       image: '/images/realisations/roofing.jpg',
       link: '/RoofingJobs',
     },
@@ -35,10 +38,10 @@ const Realisations = () => {
       <Container style={{ textAlign: 'center', padding: '20px' }}>
         {/* Title */}
         <Typography variant="h3" gutterBottom>
-          Realisations
+          {language === 'fr' ? 'Réalisation' : 'Realisations'}
         </Typography>
         <Typography variant="body1" gutterBottom style={{ marginBottom: '20px' }}>
-          Choose a category of our many completed projects
+          {language === 'fr' ? 'Choisissez une catégorie de nos nombreux projets réalisés' : 'Choose a category of our many completed projects'}
         </Typography>
 
         {/* Cards */}
@@ -82,6 +85,9 @@ const Realisations = () => {
                     <Typography variant="h5" style={{ fontWeight: 'bold' }}>
                       {project.title}
                     </Typography>
+                    <Typography variant="body2">
+                      {project.description}
+                    </Typography>
                   </CardContent>
                 </Card>
               </Link>
@@ -94,7 +100,6 @@ const Realisations = () => {
 };
 
 export default Realisations;
-
 
 
 
