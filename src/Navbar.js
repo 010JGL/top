@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Menu, MenuItem } from '@mui/material';
-import { Link } from 'react-router-dom'; // Use Link for internal navigation
+import { Link as RouterLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -11,6 +11,13 @@ const Navbar = () => {
 
   const handleLanguageClose = () => {
     setAnchorEl(null);
+  };
+
+  const scrollToContact = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -25,20 +32,20 @@ const Navbar = () => {
         <div>
           <Button
             color="inherit"
-            component={Link}
+            component={RouterLink}
             to="/"
             style={{
               marginRight: '15px',
-              transition: 'color 0.3s ease', // Smooth color transition
+              transition: 'color 0.3s ease',
             }}
-            onMouseEnter={(e) => (e.target.style.color = '#FF5733')} // Hover effect
-            onMouseLeave={(e) => (e.target.style.color = 'white')} // Revert to original color
+            onMouseEnter={(e) => (e.target.style.color = '#FF5733')}
+            onMouseLeave={(e) => (e.target.style.color = 'white')}
           >
             Home
           </Button>
           <Button
             color="inherit"
-            component={Link}
+            component={RouterLink}
             to="/realisations"
             style={{
               marginRight: '15px',
@@ -51,7 +58,7 @@ const Navbar = () => {
           </Button>
           <Button
             color="inherit"
-            component={Link}
+            component={RouterLink}
             to="/roofing"
             style={{
               marginRight: '15px',
@@ -64,7 +71,7 @@ const Navbar = () => {
           </Button>
           <Button
             color="inherit"
-            component={Link}
+            component={RouterLink}
             to="/rentPage"
             style={{
               marginRight: '15px',
@@ -77,8 +84,7 @@ const Navbar = () => {
           </Button>
           <Button
             color="inherit"
-            component={Link}
-            to="/contact"
+            onClick={scrollToContact}
             style={{
               marginRight: '15px',
               transition: 'color 0.3s ease',
@@ -104,3 +110,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

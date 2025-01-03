@@ -34,6 +34,7 @@ const HomePage = () => {
       (prevIndex) => (prevIndex - 1 + imageBank.length) % imageBank.length
     );
   };
+  
 
   return (
     <div>
@@ -173,7 +174,7 @@ const HomePage = () => {
                 flexWrap: "wrap", // Allows wrapping if the screen is small
               }}
             >
-              <Link to="/new-construction" style={{ textDecoration: "none" }}>
+              <Link to="/services" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h6"
                   style={{
@@ -190,7 +191,7 @@ const HomePage = () => {
                 </Typography>
               </Link>
 
-              <Link to="/renovation" style={{ textDecoration: "none" }}>
+              <Link to="/services" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h6"
                   style={{
