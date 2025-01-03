@@ -10,8 +10,16 @@ import {
 } from "@mui/material";
 import "./HomePage.css";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { useLanguage } from "./LanguageContext"; // Import the useLanguage hook
+import { languageData } from "./Language"; // Import the language data
+
+
+
 
 const HomePage = () => {
+
+  const { language } = useLanguage(); // Get the current language
+  const texts = languageData[language]; // Get the texts for the selected language
   // Image bank
   const imageBank = [
     "/images/image1.jpg",
@@ -62,10 +70,10 @@ const HomePage = () => {
             }}
           >
             <Typography variant="h3" className="hero-title">
-              Welcome to Les Tops du Top Construction
+            {texts.heroTitle}
             </Typography>
             <Typography variant="h6" className="hero-subtitle">
-              Your trusted partner in construction, roofing, and property
+              {texts.heroSubtitle}
               rentals.
             </Typography>
           </Container>
@@ -121,7 +129,7 @@ const HomePage = () => {
           variant="h3"
           style={{ fontWeight: "bold", marginBottom: "20px" }}
         >
-          General Contractor
+          {texts.generalContractorTitle}
         </Typography>
         <Box
           style={{
@@ -137,12 +145,7 @@ const HomePage = () => {
             variant="body1"
             style={{ fontSize: "1.1rem", lineHeight: "1.6" }}
           >
-            We are a professional general contracting firm serving the
-            Montérégie and Estrie regions, specializing in residential
-            construction. Our expertise lies in crafting luxurious single-family
-            homes and high-quality multi-unit dwellings, utilizing the latest
-            technologies and premium-grade materials to deliver exceptional
-            results.
+            {texts.generalContractorDescription}
           </Typography>
         </Box>
       </div>
@@ -162,7 +165,7 @@ const HomePage = () => {
               variant="h3"
               style={{ fontWeight: "bold", marginBottom: "15px" }}
             >
-              Services
+              {texts.servicesTitle}
             </Typography>
 
             {/* Service Links as Text */}
@@ -187,7 +190,7 @@ const HomePage = () => {
                   onMouseEnter={(e) => (e.target.style.color = "#FF5733")}
                   onMouseLeave={(e) => (e.target.style.color = "white")}
                 >
-                  New Construction
+                  {texts.newConstruction}
                 </Typography>
               </Link>
 
@@ -204,7 +207,7 @@ const HomePage = () => {
                   onMouseEnter={(e) => (e.target.style.color = "#FF5733")}
                   onMouseLeave={(e) => (e.target.style.color = "white")}
                 >
-                  Renovation
+                  {texts.renovation}
                 </Typography>
               </Link>
 
@@ -221,7 +224,7 @@ const HomePage = () => {
                   onMouseEnter={(e) => (e.target.style.color = "#FF5733")}
                   onMouseLeave={(e) => (e.target.style.color = "white")}
                 >
-                  Roofing
+                  {texts.roofing}
                 </Typography>
               </Link>
             </div>
@@ -235,25 +238,25 @@ const HomePage = () => {
           {[
             {
               id: "realisations",
-              title: "Realisations",
+              title: texts.realisations,
               image: "/images/realisations.jpg",
               link: "/realisations",
             },
             {
               id: "rents",
-              title: "Available Rentals",
+              title: texts.availableRentals,
               image: "/images/rents.jpg",
               link: "/RentPage",
             },
             {
               id: "roofing-quote",
-              title: "Get a Roofing Quote",
+              title: texts.getRoofingQuote,
               image: "/images/roofing.jpg",
               link: "/roofing",
             },
             {
               id: "contact",
-              title: "Contact Us",
+              title: texts.contactUs,
               image: "/images/contact.jpg",
               link: "/contact",
             },
@@ -262,6 +265,7 @@ const HomePage = () => {
               <Card
                 style={{
                   height: "300px",
+                  maxWidth: "580px",
                   position: "relative",
                   border: "1px solid black",
                   transition: "all 0.3s ease", // Smooth transition
