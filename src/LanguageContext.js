@@ -10,7 +10,7 @@ export const useLanguage = () => {
 
 // Language provider to wrap the app and provide the context
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en'); // 'en' for English, 'fr' for French
+  const [language, setLanguage] = useState('fr'); // 'en' for English, 'fr' for French
 
   const switchLanguage = (lang) => {
     setLanguage(lang);
