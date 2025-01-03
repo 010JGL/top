@@ -11,6 +11,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import emailjs from "emailjs-com";
+import { useLanguage } from './LanguageContext';  // Import the language context
 
 const RoofingQuotePage = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +26,8 @@ const RoofingQuotePage = () => {
     roofAngle: "",
     idealDate: "", // Ideal date for the job as text
   });
+
+  const { language } = useLanguage();  // Access the current language
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,11 +50,17 @@ const RoofingQuotePage = () => {
       .then(
         () => {
           alert(
-            "Your request has been submitted! We will contact you shortly."
+            language === "fr"
+              ? "Votre demande a été soumise! Nous vous contacterons sous peu."
+              : "Your request has been submitted! We will contact you shortly."
           );
         },
         () => {
-          alert("There was an error. Please try again later.");
+          alert(
+            language === "fr"
+              ? "Il y a eu une erreur. Veuillez réessayer plus tard."
+              : "There was an error. Please try again later."
+          );
         }
       );
   };
@@ -72,23 +81,25 @@ const RoofingQuotePage = () => {
         }}
       >
         <Typography variant="h3" style={{ fontWeight: "bold" }}>
-          Ask for a Free Roofing Quote
+          {language === "fr"
+            ? "Demander une soumission gratuite"
+            : "Ask for a Free Quote"}
         </Typography>
       </div>
 
       <Container style={{ padding: "20px", textAlign: "center" }}>
         <Typography variant="body1" style={{ marginBottom: "30px" }}>
-          We specialize in residential asphalt shingles and tin roofing
-          projects, whether it's a new construction, a roof replacement, or a
-          repair job. Our team ensures top-quality work and will provide you
-          with a custom quote tailored to your needs.
+          {language === "fr"
+            ? "Nous sommes spécialisés dans les projets résidentiels de bardeaux d'asphalte et de toitures en tôle, que ce soit pour une nouvelle construction, un remplacement de toit ou une réparation. Notre équipe garantit un travail de qualité et vous fournira un devis personnalisé adapté à vos besoins."
+            : "We specialize in residential asphalt shingles and tin roofing projects, whether it's a new construction, a roof replacement, or a repair job. Our team ensures top-quality work and will provide you with a custom quote tailored to your needs."}
         </Typography>
         <Typography
           variant="body1"
           style={{ marginBottom: "30px", fontStyle: "italic" }}
         >
-          For an urgent repair job, reach us via the Contact page for a quicker
-          response.
+          {language === "fr"
+            ? "Pour un travail de réparation urgent, contactez-nous via la page Contact pour une réponse plus rapide."
+            : "For an urgent repair job, reach us via the Contact page for a quicker response."}
         </Typography>
 
         <form onSubmit={handleSubmit}>
@@ -96,7 +107,7 @@ const RoofingQuotePage = () => {
             {/* Name */}
             <Grid item xs={12} sm={6}>
               <TextField
-                label="Name"
+                label={language === "fr" ? "Nom" : "Name"}
                 variant="outlined"
                 fullWidth
                 name="name"
@@ -109,7 +120,7 @@ const RoofingQuotePage = () => {
             {/* Address */}
             <Grid item xs={12} sm={6}>
               <TextField
-                label="Address"
+                label={language === "fr" ? "Adresse" : "Address"}
                 variant="outlined"
                 fullWidth
                 name="address"
@@ -122,7 +133,7 @@ const RoofingQuotePage = () => {
             {/* Email */}
             <Grid item xs={12} sm={6}>
               <TextField
-                label="Email"
+                label={language === "fr" ? "Courriel" : "Email"}
                 variant="outlined"
                 fullWidth
                 name="email"
@@ -135,7 +146,7 @@ const RoofingQuotePage = () => {
             {/* Phone */}
             <Grid item xs={12} sm={6}>
               <TextField
-                label="Phone Number"
+                label={language === "fr" ? "Numéro de téléphone" : "Phone Number"}
                 variant="outlined"
                 fullWidth
                 name="phone"
@@ -148,9 +159,9 @@ const RoofingQuotePage = () => {
             {/* Material Type */}
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
-                <InputLabel>Material Type</InputLabel>
+                <InputLabel>{language === "fr" ? "Type de matériau" : "Material Type"}</InputLabel>
                 <Select
-                  label="Material Type"
+                  label={language === "fr" ? "Type de matériau" : "Material Type"}
                   name="materialType"
                   value={formData.materialType}
                   onChange={handleChange}
@@ -164,16 +175,16 @@ const RoofingQuotePage = () => {
             {/* Project */}
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
-                <InputLabel>Project</InputLabel>
+                <InputLabel>{language === "fr" ? "Projet" : "Project"}</InputLabel>
                 <Select
-                  label="Project"
+                  label={language === "fr" ? "Projet" : "Project"}
                   name="project"
                   value={formData.project}
                   onChange={handleChange}
                   required
                 >
-                  <MenuItem value="New Construction">New Construction</MenuItem>
-                  <MenuItem value="Roof Replacement">Roof Replacement</MenuItem>
+                  <MenuItem value="New Construction">{language === "fr" ? "Nouvelle construction" : "New Construction"}</MenuItem>
+                  <MenuItem value="Roof Replacement">{language === "fr" ? "Remplacement de toit" : "Roof Replacement"}</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -184,15 +195,16 @@ const RoofingQuotePage = () => {
                 variant="body1"
                 style={{ marginBottom: "10px", marginTop: "10px" }}
               >
-                This category is optional but will help us calculate a more
-                accurate price.
+                {language === "fr"
+                  ? "Cette catégorie est facultative mais nous aidera à calculer un prix plus précis."
+                  : "This category is optional but will help us calculate a more accurate price."}
               </Typography>
             </Grid>
 
             {/* Length */}
             <Grid item xs={12} sm={6}>
               <TextField
-                label="Length of the House (ft)"
+                label={language === "fr" ? "Longueur de la maison (ft)" : "Length of the House (ft)"}
                 variant="outlined"
                 fullWidth
                 name="length"
@@ -204,7 +216,7 @@ const RoofingQuotePage = () => {
             {/* Width */}
             <Grid item xs={12} sm={6}>
               <TextField
-                label="Width of the House (ft)"
+                label={language === "fr" ? "Largeur de la maison (ft)" : "Width of the House (ft)"}
                 variant="outlined"
                 fullWidth
                 name="width"
@@ -215,9 +227,9 @@ const RoofingQuotePage = () => {
             {/* Roof Angle */}
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
-                <InputLabel>Roof Angle</InputLabel>
+                <InputLabel>{language === "fr" ? "Angle du toit" : "Roof Angle"}</InputLabel>
                 <Select
-                  label="Roof Angle"
+                  label={language === "fr" ? "Angle du toit" : "Roof Angle"}
                   name="roofAngle"
                   value={formData.roofAngle}
                   onChange={handleChange}
@@ -241,7 +253,7 @@ const RoofingQuotePage = () => {
             {/* Ideal Date for the Job */}
             <Grid item xs={12} sm={6}>
               <TextField
-                label="Ideal Date for the Job"
+                label={language === "fr" ? "Date idéale pour le travail" : "Ideal Date for the Job"}
                 variant="outlined"
                 fullWidth
                 name="idealDate"
@@ -258,7 +270,7 @@ const RoofingQuotePage = () => {
                 style={{ backgroundColor: "black", color: "white" }}
                 fullWidth
               >
-                Submit Request
+                {language === "fr" ? "Soumettre la demande" : "Submit Request"}
               </Button>
             </Grid>
           </Grid>
