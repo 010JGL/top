@@ -25,10 +25,10 @@ const GalleryTemplate = ({ title, description, galleryItems }) => {
           {description}
         </Typography>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={2}> {/* Reduced spacing here */}
           {galleryItems.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>
+              <Card style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}> {/* Reduced bottom margin */}
                 <CardActionArea>
                   <CardMedia
                     component={item.type === 'video' ? 'video' : 'img'}
@@ -78,9 +78,17 @@ const GalleryPage = () => {
     title: language === 'fr' ? 'Galerie de maisons unifamiliales' : 'Single-Family Home Gallery',
     description: language === 'fr' ? 'Voici quelques-uns de nos projets récents.' : 'These are some of our recent projects.',
     galleryItems: [
-      { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
-      { type: 'video', video: '/path/to/video.mp4', alt: language === 'fr' ? 'Vidéo exemple' : 'Sample Video' },
-      { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/jour.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/entree.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/cuisine.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/chambre.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/dos.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/marches.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/salon.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/sdb.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/nuit.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/sdb2.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: '/images/realisations/houses/cuisine2.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
     ],
   };
 
@@ -96,3 +104,4 @@ const GalleryPage = () => {
 };
 
 export default GalleryPage;
+

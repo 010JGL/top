@@ -78,9 +78,9 @@ const GalleryPage = () => {
     title: language === 'fr' ? 'Galerie des travaux de toiture' : 'Roofing Jobs Gallery',
     description: language === 'fr' ? 'Voici quelques-uns de nos projets récents.' : 'These are some of our recent projects.',
     galleryItems: [
-      { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
-      { type: 'video', video: '/path/to/video.mp4', alt: language === 'fr' ? 'Vidéo exemple' : 'Sample Video' },
-      { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: 'images/realisations/roof/toit3.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: 'images/realisations/roof/toit2.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: 'images/realisations/roof/toit.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
     ],
   };
 

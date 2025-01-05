@@ -78,7 +78,7 @@ const GalleryPage = () => {
     title: language === 'fr' ? 'Galerie de rénovations' : 'Renovation Gallery',
     description: language === 'fr' ? 'Voici quelques-uns de nos projets récents.' : 'These are some of our recent projects.',
     galleryItems: [
-      { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
+      { type: 'image', image: 'images/realisations/reno/sdb3.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
       { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
       { type: 'image', image: '/path/to/image.jpg', alt: language === 'fr' ? 'Image exemple' : 'Sample Image' },
     ],

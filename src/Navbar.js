@@ -49,7 +49,7 @@ const Navbar = () => {
             to="/realisations"
             style={{ marginRight: '15px' }}
           >
-            {language === 'en' ? 'Realisations' : 'Réalisation'}
+            {language === 'en' ? 'Realisations' : 'Réalisations'}
           </Button>
           <Button
             color="inherit"

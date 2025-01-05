@@ -22,11 +22,11 @@ const HomePage = () => {
   const texts = languageData[language]; // Get the texts for the selected language
   // Image bank
   const imageBank = [
-    "/images/image1.jpg",
-    "/images/image2.jpg",
-    "/images/image3.jpg",
-    "/images/image4.jpg",
-    "/images/image5.jpg",
+    "/images/homepage/image1.jpg",
+    "/images/homepage/image2.jpg",
+    "/images/homepage/image3.jpg",
+    "/images/homepage/image4.jpg",
+    "/images/homepage/image5.jpg",
   ];
 
   // State for the currently displayed image
@@ -239,25 +239,25 @@ const HomePage = () => {
             {
               id: "realisations",
               title: texts.realisations,
-              image: "/images/realisations.jpg",
+              image: "/images/homepage/realisations.jpg",
               link: "/realisations",
             },
             {
               id: "rents",
               title: texts.availableRentals,
-              image: "/images/rents.jpg",
+              image: "/images/homepage/rents.jpg",
               link: "/RentPage",
             },
             {
               id: "roofing-quote",
               title: texts.getRoofingQuote,
-              image: "/images/roofing.jpg",
+              image: "/images/homepage/roofing.jpg",
               link: "/roofing",
             },
             {
               id: "contact",
               title: texts.contactUs,
-              image: "/images/contact.jpg",
+              image: "/images/homepage/contact.jpg",
               link: "/ContactUs"
               
               
