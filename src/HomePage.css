@@ -65,4 +65,34 @@
   box-shadow: 0 6px 20px rgb(0, 0, 0); /* Larger and darker shadow */
   transform: translateY(-5px); /* Optional: Slightly lift the card */
 }
+/* Existing styles */
+
+/* Media query for small screens (mobile) */
+@media (max-width: 600px) {
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .arrow-button {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .left-arrow {
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .right-arrow {
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
 

@@ -74,7 +74,6 @@ const HomePage = () => {
             </Typography>
             <Typography variant="h6" className="hero-subtitle">
               {texts.heroSubtitle}
-              rentals.
             </Typography>
           </Container>
           {/* Navigation Buttons */}

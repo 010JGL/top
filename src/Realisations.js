@@ -15,7 +15,7 @@ const Realisations = () => {
     },
     {
       title: language === 'fr' ? 'Unités multiples' : 'Multi Units',
-      description: language === 'fr' ? 'Bâtiments fonctionnels et élégants à plusieurs unités.' : 'Stylish and functional multi-unit buildings.',
+      description: language === 'fr' ? 'Bâtiments élégants à plusieurs unités.' : 'Stylish multi-unit buildings.',
       image: '/images/realisations/multi-units.jpg',
       link: '/MultiUnits',
     },
