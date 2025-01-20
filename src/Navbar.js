@@ -75,6 +75,11 @@ const Navbar = () => {
           <Button color="inherit" onClick={scrollToContact} style={{ marginRight: '15px' }}>
             {language === 'en' ? 'Contact' : 'Contact'}
           </Button>
+
+          {/* Language Switcher Button */}
+          <Button color="inherit" onClick={handleLanguageClick} style={{ marginLeft: '15px' }}>
+            {language === 'en' ? 'ENG/FR' : 'FR/ENG'}
+          </Button>
         </Box>
 
         {/* Mobile Menu Button */}
@@ -120,5 +125,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
