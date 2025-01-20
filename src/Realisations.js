@@ -21,7 +21,7 @@ const Realisations = () => {
     },
     {
       title: language === 'fr' ? 'Rénovation' : 'Renovation',
-      description: language === 'fr' ? 'Projets de rénovation spécialisés pour tous besoins.' : 'Expert renovation projects for all needs.',
+      description: language === 'fr' ? 'Projets de rénovation spécialisés pour tous vos besoins.' : 'Expert renovation projects for all needs.',
       image: '/images/realisations/renovation.jpg',
       link: '/Renovation',
     },
